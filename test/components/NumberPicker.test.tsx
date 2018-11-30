@@ -31,8 +31,8 @@ describe('NumberPicker', () => {
     });
     test.skip('First atom should show a plus and third atom should show a minus', () => {
       const wrapper = shallow(<NumberPicker/>);
-      expect(wrapper.find('div').childAt(0).text()).toBe('+');
-      expect(wrapper.find('div').childAt(2).text()).toBe('-');
+      const buttons = wrapper.find('button').map( node => node.text());
+      expect(buttons).toEqual(['+,-']);
     });
     test.skip('Second atom should show a 0', () => {
       const wrapper = shallow(<NumberPicker/>);
@@ -45,7 +45,7 @@ describe('NumberPicker', () => {
       expect(text).toEqual(['+','0','-']);
     });
   });
-  
+
   describe('render with first click', () => {
     test('The second atom shows number 1 with plus click', () => {
       const wrapper = shallow(<NumberPicker/>);
