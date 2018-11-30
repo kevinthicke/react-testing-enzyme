@@ -1,5 +1,5 @@
 {
-  "name": "react-modulo-9",
+  "name": "react-testing-enzyme",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,19 +9,11 @@
     "dev": "webpack-dev-server --mode development",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/raulanatol/react-modulo-9.git"
-  },
   "keywords": [],
   "author": {
     "name": "raulanatol"
   },
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/raulanatol/react-modulo-9/issues"
-  },
-  "homepage": "https://github.com/raulanatol/react-modulo-9#readme",
   "devDependencies": {
     "@types/enzyme": "^3.1.10",
     "@types/jest": "^22.2.3",
