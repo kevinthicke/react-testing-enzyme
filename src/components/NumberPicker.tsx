@@ -4,7 +4,7 @@ export default class NumberPicker extends React.Component<{}, {}> {
   render() {
     return <div>
           <button>+</button>
-          <span></span>
+          <span>0</span>
           <button>-</button>        
           </div>;
   }

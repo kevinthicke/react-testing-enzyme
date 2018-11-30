@@ -29,10 +29,14 @@ describe('NumberPicker', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').childAt(1).is('span')).toBeTruthy();
     });
-    test('First atom should has a plus and second atom should has a minus', () => {
+    test('First atom should has a plus and third atom should has a minus', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').childAt(0).text()).toBe('+');
       expect(wrapper.find('div').childAt(2).text()).toBe('-');
     });
+    test('Second atom should has a 0', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      expect(wrapper.find('div').childAt(1).text()).toBe('0');
+    })
 
 });
