@@ -5,7 +5,6 @@ export interface NumberPickerState {
 }
 
 export default class NumberPicker extends React.Component<{}, NumberPickerState> {
-
   constructor(props) {
     super(props);
 
@@ -24,12 +23,11 @@ export default class NumberPicker extends React.Component<{}, NumberPickerState>
     this.setState({ spanNumber: this.state.spanNumber - 1 })
   }
 
-
   render() {
-    return <div> 
-            <button onClick={this.increaseCount}>+</button>
-            <span>{this.state.spanNumber}</span>
-            <button onClick={this.decreaseCount}>-</button>
+    return <div className="number-picker">
+            <button className="number-picker-buttons" onClick={this.increaseCount}>+</button>
+            <p className="number-picker-label">{this.state.spanNumber}</p>
+            <button className="number-picker-buttons" onClick={this.decreaseCount}>-</button>
           </div>;
   }
 }
