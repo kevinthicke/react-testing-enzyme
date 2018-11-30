@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import NumberPicker from "../../src/components/NumberPicker";
 
 describe('NumberPicker', () => {
-  describe('render', () => {
+  describe('render without click', () => {
     test('Should render a molecule div', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div')).toBeTruthy();
@@ -29,14 +29,34 @@ describe('NumberPicker', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').childAt(1).is('span')).toBeTruthy();
     });
-    test('First atom should has a plus and third atom should has a minus', () => {
+    test.skip('First atom should show a plus and third atom should show a minus', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').childAt(0).text()).toBe('+');
       expect(wrapper.find('div').childAt(2).text()).toBe('-');
     });
-    test('Second atom should has a 0', () => {
+    test.skip('Second atom should show a 0', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').childAt(1).text()).toBe('0');
+    });
+    test('The order of atoms should be [+,0,-]', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      const text = wrapper.find('div').children()
+                                .map( node => node.text()) //que ocurre si no ponemos .text()?
+      expect(text).toEqual(['+','0','-']);
+    });
+  });
+  
+  describe('render with first click', () => {
+    test('The second atom shows number 1 with plus click', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      wrapper.find('button').at(0).simulate('click');
+      expect(wrapper.find('span').text()).toBe('1');
+    });
+    test('The second atom shows number -1 with minus click', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      wrapper.find('button').at(1).simulate('click');
+      expect(wrapper.find('span').text()).toBe('-1')
     })
-
+  });
 });
+
