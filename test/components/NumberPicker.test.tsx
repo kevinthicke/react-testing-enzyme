@@ -12,4 +12,8 @@ describe('NumberPicker', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').children()).toHaveLength(3);
     });
+    test('Should be two buttons', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      expect(wrapper.find('div').children('button')).toHaveLength(2);
+    });
 });
