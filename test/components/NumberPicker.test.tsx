@@ -19,5 +19,20 @@ describe('NumberPicker', () => {
     test('Should be a span', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').children('span')).toBeTruthy();
-    })
+    });
+    test('First and third atoms should be a buttons', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      expect(wrapper.find('div').childAt(0).is('button')).toBeTruthy();
+      expect(wrapper.find('div').childAt(2).is('button')).toBeTruthy();
+    });
+    test('Second atom should be a span', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      expect(wrapper.find('div').childAt(1).is('span')).toBeTruthy();
+    });
+    test('First atom should has a plus and second atom should has a minus', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      expect(wrapper.find('div').childAt(0).text()).toBe('+');
+      expect(wrapper.find('div').childAt(2).text()).toBe('-');
+    });
+
 });
