@@ -16,4 +16,8 @@ describe('NumberPicker', () => {
       const wrapper = shallow(<NumberPicker/>);
       expect(wrapper.find('div').children('button')).toHaveLength(2);
     });
+    test('Should be a span', () => {
+      const wrapper = shallow(<NumberPicker/>);
+      expect(wrapper.find('div').children('span')).toBeTruthy();
+    })
 });
